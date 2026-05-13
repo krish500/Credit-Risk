@@ -43,24 +43,29 @@ def explain(explainer: Any, x_row: pd.DataFrame) -> dict:
 def heuristic_explanation(x_row: pd.DataFrame) -> dict:
     row = x_row.iloc[0]
     weights = {
-        "age": -0.002 * (row["age"] - 35),
-        "income": -0.0000018 * (row["income"] - 55000),
-        "employment_years": -0.015 * min(row["employment_years"], 12),
-        "loan_amount": 0.0000016 * (row["loan_amount"] - 18000),
-        "loan_term": 0.002 * ((row["loan_term"] - 36) / 12),
-        "credit_history_years": -0.01 * min(row["credit_history_years"], 20),
-        "existing_loans": 0.025 * row["existing_loans"],
-        "previous_defaults": 0.13 * row["previous_defaults"],
-        "credit_utilization": 0.32 * (row["credit_utilization"] - 0.35),
-        "debt_to_income": 0.42 * (row["debt_to_income"] - 0.28),
-        "loan_to_income_ratio": 0.16 * (row["loan_to_income_ratio"] - 0.25),
-        "income_per_year_employed": -0.000001 * min(row["income_per_year_employed"], 100000),
-        "is_high_risk_purpose": 0.05 * row["is_high_risk_purpose"],
-        "credit_age_to_loan_ratio": -0.018 * row["credit_age_to_loan_ratio"],
-        "education_encoded": -0.018 * row["education_encoded"],
+        "age": max(0, (30 - row["age"]) * 0.04)
+        + max(0, (row["age"] - 55) * 0.02)
+        - max(0, min(row["age"] - 30, 15)) * 0.015,
+        "income": max(-0.8, min(0.9, ((45000 - row["income"]) / 25000) * 0.6)),
+        "employment_years": max(-0.45, min(0.55, (3 - row["employment_years"]) * 0.22)),
+        "loan_amount": max(-0.2, min(0.35, ((row["loan_amount"] - 15000) / 30000) * 0.25)),
+        "loan_term": ((row["loan_term"] - 36) / 12) * 0.06,
+        "credit_history_years": max(
+            -0.5,
+            min(0.5, ((3 - row["credit_history_years"]) * 0.22) - (max(row["credit_history_years"] - 8, 0) * 0.025)),
+        ),
+        "existing_loans": 0.16 * row["existing_loans"],
+        "previous_defaults": 0.9 * row["previous_defaults"],
+        "credit_utilization": 2.4 * (row["credit_utilization"] - 0.35),
+        "debt_to_income": 2.8 * (row["debt_to_income"] - 0.28),
+        "loan_to_income_ratio": 0.9 * (row["loan_to_income_ratio"] - 0.3),
+        "income_per_year_employed": 0,
+        "is_high_risk_purpose": 0.28 * row["is_high_risk_purpose"],
+        "credit_age_to_loan_ratio": 0,
+        "education_encoded": {0: 0.08, 1: 0, 2: -0.22}.get(int(row["education_encoded"]), 0),
     }
     values = np.array([weights[column] for column in FEATURE_COLUMNS], dtype=float)
-    return _format_explanation(0.08, values, x_row)
+    return _format_explanation(-1.5, values, x_row)
 
 
 def probability_from_logit(logit: float) -> float:

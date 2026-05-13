@@ -78,7 +78,7 @@ def score_to_decision(score: int, thresholds: Thresholds):
 
 def _heuristic_probability(x_row: pd.DataFrame) -> float:
     explanation = heuristic_explanation(x_row)
-    logit = -2.4 + sum(explanation["shap_values"])
+    logit = explanation["base_value"] + sum(explanation["shap_values"])
     return 1 / (1 + math.exp(-logit))
 
 
@@ -108,6 +108,8 @@ def health():
     return {
         "status": "ok",
         "mode": _mode(),
+        "has_model_file": MODEL_PATH.exists(),
+        "has_explainer_file": EXPLAINER_PATH.exists(),
         "has_metrics": METRICS_PATH.exists(),
         "has_global_importance": GLOBAL_IMPORTANCE_PATH.exists(),
     }
