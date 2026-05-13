@@ -67,7 +67,7 @@ Credit-Risk/
 - **Package Manager**: npm
 - **Dataset**: Kaggle Home Credit Default Risk `application_train.csv`
 
-Render uses `backend/runtime.txt` to pin the deployed API to Python 3.11.9.
+Render should use Python 3.11.9. The repo includes `.python-version`, and the Render service should also set `PYTHON_VERSION=3.11.9`.
 
 ### Installation
 
