@@ -1,6 +1,6 @@
 import { BatchPredictionResult, LoanApplication, ModelInfo, PredictionResult, Thresholds } from './types'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001'
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001').replace(/\/+$/, '')
 
 export async function fetchModelInfo(): Promise<ModelInfo> {
   const response = await fetch(`${API_URL}/model-info`, { cache: 'no-store' })
