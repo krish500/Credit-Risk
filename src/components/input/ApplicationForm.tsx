@@ -118,7 +118,7 @@ export default function ApplicationForm({ onSubmit, loading, borrowerLabel, onBo
       </div>
 
       <form onSubmit={handleSubmit} className="mt-5 space-y-3">
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3">
           <FormField label="Age">
             <input className={inputClass} type="number" min={18} max={80} {...numberInputProps('age')} />
           </FormField>

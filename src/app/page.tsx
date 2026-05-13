@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <main className="min-h-screen pb-12">
       <Header />
-      <div className="mx-auto max-w-lg px-4 pt-6 lg:max-w-4xl">
+      <div className="mx-auto max-w-lg px-4 pt-6">
         <div className="grid grid-cols-2 rounded-md border border-[var(--border)] bg-[var(--card-2)] p-1">
           {(['demo', 'about'] as const).map((tab) => (
             <button
@@ -90,9 +90,9 @@ export default function Home() {
       </div>
 
       {activeTab === 'demo' ? (
-        <div className="mx-auto grid max-w-lg grid-cols-1 gap-5 px-4 pt-5 lg:max-w-6xl lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+        <div className="mx-auto flex max-w-lg flex-col gap-5 px-4 pt-5">
           <div className="flex flex-col gap-5">
-            <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+            <div className="flex flex-col gap-5">
               <div>
                 <StepLabel number={1} />
                 <ThresholdControls thresholds={thresholds} onChange={setThresholds} />
