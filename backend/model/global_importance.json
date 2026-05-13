@@ -1,0 +1,81 @@
+{
+    "method":  "mean_abs_shap",
+    "sample_rows":  2000,
+    "features":  [
+                     {
+                         "name":  "credit_utilization",
+                         "label":  "Credit utilization",
+                         "importance":  100.0
+                     },
+                     {
+                         "name":  "employment_years",
+                         "label":  "Years employed",
+                         "importance":  44.72
+                     },
+                     {
+                         "name":  "age",
+                         "label":  "Age",
+                         "importance":  32.82
+                     },
+                     {
+                         "name":  "education_encoded",
+                         "label":  "Education level",
+                         "importance":  30.23
+                     },
+                     {
+                         "name":  "loan_amount",
+                         "label":  "Loan amount",
+                         "importance":  17.79
+                     },
+                     {
+                         "name":  "income_per_year_employed",
+                         "label":  "Income stability",
+                         "importance":  13.48
+                     },
+                     {
+                         "name":  "credit_history_years",
+                         "label":  "Credit history length",
+                         "importance":  8.07
+                     },
+                     {
+                         "name":  "income",
+                         "label":  "Annual income",
+                         "importance":  5.16
+                     },
+                     {
+                         "name":  "debt_to_income",
+                         "label":  "Debt-to-income ratio",
+                         "importance":  3.67
+                     },
+                     {
+                         "name":  "loan_to_income_ratio",
+                         "label":  "Loan-to-income ratio",
+                         "importance":  2.12
+                     },
+                     {
+                         "name":  "previous_defaults",
+                         "label":  "Previous defaults",
+                         "importance":  0.28
+                     },
+                     {
+                         "name":  "credit_age_to_loan_ratio",
+                         "label":  "Credit age vs loan term",
+                         "importance":  0.23
+                     },
+                     {
+                         "name":  "existing_loans",
+                         "label":  "Existing active loans",
+                         "importance":  0.1
+                     },
+                     {
+                         "name":  "loan_term",
+                         "label":  "Loan term",
+                         "importance":  0.0
+                     },
+                     {
+                         "name":  "is_high_risk_purpose",
+                         "label":  "High-risk loan purpose",
+                         "importance":  0.0
+                     }
+                 ]
+}

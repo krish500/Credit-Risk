@@ -1,0 +1,4 @@
+age,income,employment_years,education,loan_amount,loan_term,loan_purpose,credit_history_years,existing_loans,previous_defaults,credit_utilization,debt_to_income
+42,95000,12,higher,15000,36,home,18,1,0,0.15,0.12
+27,24000,1,secondary,18000,60,consumer,2,3,2,0.88,0.61
+34,48000,4,higher,22000,48,auto,7,2,1,0.52,0.38

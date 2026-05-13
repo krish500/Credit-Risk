@@ -1,0 +1,13 @@
+.next/
+node_modules/
+.idea/
+dist/
+build/
+.env
+.env.local
+__pycache__/
+*.pyc
+backend/venv/
+backend/.venv/
+backend/data/
+backend/model/*.pkl

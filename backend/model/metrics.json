@@ -1,0 +1,17 @@
+{
+  "trained_at": "2026-05-13T03:54:30.229304+00:00",
+  "dataset": "Kaggle Home Credit Default Risk - application_train.csv",
+  "n_train": 246008,
+  "n_test": 61503,
+  "auc_roc": 0.6974,
+  "gini": 0.3948,
+  "data_limitations": [
+    "Only a subset of Home Credit columns is used; multiple form fields are renamed, derived, or proxied for this demo pipeline.",
+    "credit_utilization is a blended proxy from external scores, DTI, credit requests, prior default proxy, and stable noise.",
+    "previous_defaults is mapped from DEF_30_CNT_SOCIAL_CIRCLE as a non target proxy. It isn't copied from the TARGET label.",
+    "existing_loans is mapped from yearly credit bureau request count as a pressure proxy.",
+    "debt_to_income uses AMT_ANNUITY over monthly income when AMT_ANNUITY is present.",
+    "Monotonic constraints keep obvious demo inputs pointed in the expected direction, like higher DTI raising risk.",
+    "loan_purpose and loan_term are partially defaulted for alignment for the UI"
+  ]
+}
