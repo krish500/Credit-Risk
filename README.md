@@ -67,6 +67,8 @@ Credit-Risk/
 - **Package Manager**: npm
 - **Dataset**: Kaggle Home Credit Default Risk `application_train.csv`
 
+Render uses `backend/runtime.txt` to pin the deployed API to Python 3.11.9.
+
 ### Installation
 
 1. **Navigate to the project:**
